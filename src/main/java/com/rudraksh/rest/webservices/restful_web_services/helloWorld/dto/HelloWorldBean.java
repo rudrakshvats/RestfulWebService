@@ -1,4 +1,4 @@
-package com.rudraksh.rest.webservices.restful_web_services.dto;
+package com.rudraksh.rest.webservices.restful_web_services.helloWorld.dto;
 
 public class HelloWorldBean {
 

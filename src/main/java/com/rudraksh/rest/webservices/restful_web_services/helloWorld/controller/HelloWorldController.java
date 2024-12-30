@@ -1,6 +1,6 @@
-package com.rudraksh.rest.webservices.restful_web_services.controller;
+package com.rudraksh.rest.webservices.restful_web_services.helloWorld.controller;
 
-import com.rudraksh.rest.webservices.restful_web_services.dto.HelloWorldBean;
+import com.rudraksh.rest.webservices.restful_web_services.helloWorld.dto.HelloWorldBean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

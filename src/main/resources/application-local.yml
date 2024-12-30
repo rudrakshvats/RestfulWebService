@@ -2,3 +2,6 @@
 #  level:
 #    org:
 #      springframework: debug
+
+server:
+  port: 8081
