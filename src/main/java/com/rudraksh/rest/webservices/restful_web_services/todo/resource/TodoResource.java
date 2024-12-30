@@ -3,6 +3,7 @@ package com.rudraksh.rest.webservices.restful_web_services.todo.resource;
 import com.rudraksh.rest.webservices.restful_web_services.todo.entity.Todo;
 import com.rudraksh.rest.webservices.restful_web_services.todo.service.TodoHardcodedService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,11 @@ public class TodoResource {
         return todoHardcodedService.findAll();
     }
 
+    @GetMapping(path = "/users/{username}/todos/{id}")
+    public Todo getTodo(@PathVariable String username, @PathVariable long id) {
+        return todoHardcodedService.findById(id);
+    }
+
     @DeleteMapping(path = "/users/{username}/todos/{id}")
     public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable long id) {
         Todo todo = todoHardcodedService.deleteById(id);
@@ -27,5 +33,11 @@ public class TodoResource {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping(path = "/users/{username}/todos/{id}")
+    public ResponseEntity<Todo> updateTodo(@PathVariable String username, @PathVariable long id, @RequestBody Todo todo) {
+        Todo updatedTodo = todoHardcodedService.saveTodo(todo);
+        return new ResponseEntity<Todo>(todo, HttpStatus.OK);
     }
 }

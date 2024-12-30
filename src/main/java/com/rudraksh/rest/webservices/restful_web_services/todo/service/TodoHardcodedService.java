@@ -37,4 +37,16 @@ public class TodoHardcodedService {
     public Todo findById(long id) {
         return todos.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
     }
+
+    public Todo saveTodo(Todo todo) {
+        if (-1 == todo.getId()) {
+            todo.setId(++idCounter);
+            todos.add(todo);
+        }
+        else {
+            deleteById(todo.getId());
+            todos.add(todo);
+        }
+        return todo;
+    }
 }
