@@ -40,7 +40,7 @@ public class TodoResource {
     @PutMapping(path = "/users/{username}/todos/{id}")
     public ResponseEntity<Todo> updateTodo(@PathVariable String username, @PathVariable long id, @RequestBody Todo todo) {
         Todo updatedTodo = todoHardcodedService.saveTodo(todo);
-        return new ResponseEntity<Todo>(todo, HttpStatus.OK);
+        return new ResponseEntity<Todo>(updatedTodo, HttpStatus.OK);
     }
 
     @PostMapping(path = "/users/{username}/todos")

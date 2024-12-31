@@ -6,8 +6,13 @@
 server:
   port: 8081
 
-spring:
-  security:
-    user:
-      name: Rudraksh
-      password: dummy
+#spring:
+#  security:
+#    user:
+#      name: Rudraksh
+#      password: dummy
+
+jwt:
+  get:
+    token:
+      uri: /authenticate
