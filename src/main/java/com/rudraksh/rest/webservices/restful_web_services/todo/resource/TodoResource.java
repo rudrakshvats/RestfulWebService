@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -39,5 +41,12 @@ public class TodoResource {
     public ResponseEntity<Todo> updateTodo(@PathVariable String username, @PathVariable long id, @RequestBody Todo todo) {
         Todo updatedTodo = todoHardcodedService.saveTodo(todo);
         return new ResponseEntity<Todo>(todo, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/users/{username}/todos")
+    public ResponseEntity<Void> saveTodo(@PathVariable String username, @RequestBody Todo todo) {
+        Todo newTodo = todoHardcodedService.saveTodo(todo);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newTodo.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 }
