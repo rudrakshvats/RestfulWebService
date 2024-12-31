@@ -1,10 +1,10 @@
 package com.rudraksh.rest.webservices.restful_web_services.helloWorld.dto;
 
-public class HelloWorldBean {
+public class AuthenticationBean {
 
     private String message;
 
-    public HelloWorldBean(String message) {
+    public AuthenticationBean(String message) {
         this.message = message;
     }
 
