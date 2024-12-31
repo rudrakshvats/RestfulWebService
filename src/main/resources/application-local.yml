@@ -5,3 +5,9 @@
 
 server:
   port: 8081
+
+spring:
+  security:
+    user:
+      name: Rudraksh
+      password: dummy
