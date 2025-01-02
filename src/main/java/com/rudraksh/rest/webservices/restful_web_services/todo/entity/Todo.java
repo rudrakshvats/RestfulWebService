@@ -1,14 +1,24 @@
 package com.rudraksh.rest.webservices.restful_web_services.todo.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 import java.util.Date;
 import java.util.Objects;
 
+@Entity()
 public class Todo {
-    private long id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String username;
     private String description;
     private Date targetDate;
     private boolean done;
+
+    public Todo() {
+    }
 
     public Todo(long id, String username, String description, Date targetDate, Boolean done) {
         this.id = id;
@@ -18,11 +28,11 @@ public class Todo {
         this.done = done;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
